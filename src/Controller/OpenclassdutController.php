@@ -19,4 +19,10 @@ class OpenclassdutController extends AbstractController
             'controller_name' => 'OpenclassdutController',
         ]);
     }
+    public function formations()
+    {
+        return $this->render('openclassdut/formations.html.twig', [
+            'controller_name' => 'OpenclassdutController',
+        ]);
+    }
 }

@@ -5,3 +5,7 @@ openclassdut_accueil:
 openclassdut_entreprises:
     path: /entreprises
     controller: App\Controller\OpenclassdutController::entreprises
+
+openclassdut_formations:
+    path: /formations
+    controller: App\Controller\OpenclassdutController::formations
