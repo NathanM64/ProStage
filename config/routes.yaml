@@ -9,3 +9,7 @@ openclassdut_entreprises:
 openclassdut_formations:
     path: /formations
     controller: App\Controller\OpenclassdutController::formations
+
+openclassdut_stage:
+    path: /stage/2
+    controller: App\Controller\OpenclassdutController::stage
