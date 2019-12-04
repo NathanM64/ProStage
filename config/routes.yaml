@@ -11,5 +11,5 @@ openclassdut_formations:
     controller: App\Controller\OpenclassdutController::formations
 
 openclassdut_stage:
-    path: /stage/2
+    path: /stage/{id}
     controller: App\Controller\OpenclassdutController::stage
