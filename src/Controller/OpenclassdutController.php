@@ -25,8 +25,8 @@ class OpenclassdutController extends AbstractController
             'controller_name' => 'OpenclassdutController',
         ]);
     }
-    public function stage($id)
+    public function stage()
     {
-        return $this->render('openclassdut/stage.html.twig', ['idStage' => $id ]);
+        return $this->render('openclassdut/stage.html.twig');
     }
 }

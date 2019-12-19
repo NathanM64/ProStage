@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block contenu %}
-<h1>Bienvenue sur la page d'accueil de Prostages</h1>
 
-<p>
-    Cette page présentera bienôt tous les stages
 
-</p>
+{% block navbar %}
+
+    <a class="nav-item nav-link active" href="">Accueil <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{path('stage')}}">Stages <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="">Entreprises <span class="sr-only">(current)</span></a>                                
+                  
 {% endblock %}
-
