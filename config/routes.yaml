@@ -1,15 +1,1 @@
-openclassdut_accueil:
-    path: /accueil
-    controller: App\Controller\OpenclassdutController::accueil
-
-openclassdut_entreprises:
-    path: /entreprises
-    controller: App\Controller\OpenclassdutController::entreprises
-
-openclassdut_formations:
-    path: /formations
-    controller: App\Controller\OpenclassdutController::formations
-
-openclassdut_stage:
-    path: /stage
-    controller: App\Controller\OpenclassdutController::stage
+#rien
