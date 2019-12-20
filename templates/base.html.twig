@@ -60,10 +60,63 @@
         </div>
     </div>
 {% endblock %}
+{% block enTeteDePage %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+            <h3>
+				{% block titre %}{% endblock %}
+			</h3>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block stageDescription %}
+
+
+
 
 {% block contenu %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+
+
+{% block enTeteTableauStage %}
+
+
+
 
 {% endblock %}
+{% block elementTab %}
+
+
+{% endblock %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
 {% block footer %}
 
 {% endblock %}

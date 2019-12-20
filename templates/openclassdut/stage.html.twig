@@ -8,5 +8,64 @@
     <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>                                
                   
 {% endblock %}
+{% block titre %}
+<br>
+Liste de tous les stages
+
+{% endblock %}
+{% block enTeteTableauStage %}
+<thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Titre
+        </th>
+        <th>
+            Types de formation
+        </th>
+        <th>
+            Entreprise
+        </th>
+        <th>
+            à propos
+        </th>
+    </tr>
+</thead>
+{% endblock %}
+
+{% block elementTab  %}
+<tbody>
+    {% for stage in listeStages %}
+
+        <tr>
+            <td>
+                {{stage.id}}
+            </td>
+            <td>
+                {{stage.titre}}
+            </td>
+            <td>
+                {% for formation in stage.formations %}
+                  
+                    {{formation.libelle}}<br>
+
+                {% endfor %}
+            </td>
+            <td>
+                {{stage.getEntreprise().nom}}
+            </td>
+            <td>
+                <a href= "{{path('stageDetaillee',{id:stage.id})}}">Plus d'information </a>
+            </td>
+            
+        </tr>
+</tbody>
 
 
+    {% endfor %}
+
+
+
+{% endblock %}
