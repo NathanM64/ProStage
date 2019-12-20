@@ -30,7 +30,7 @@ class AppFixtures extends Fixture
             
             $Stage = new Stage();
             $Stage->setTitre($faker->realText($maxNbChars = 50 , $indexSize = 2));
-            $Stage->SetDescriptionMission($faker->realText($maxNbChars = 400 , $indexSize = 2));
+            $Stage->SetDescriptionMission($faker->realText($maxNbChars = 255 , $indexSize = 2));
             $Stage->setEmail($faker->realText($maxNbChars = 30 , $indexSize = 2));
             
             $Stage->addFormation($Formation);

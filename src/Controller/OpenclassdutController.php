@@ -51,6 +51,7 @@ class OpenclassdutController extends AbstractController
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         
         $stages = $repositoryStages -> findAll();
+
         
 
         return $this->render('openclassdut/stage.html.twig',['listeStages' => $stages]);
@@ -62,9 +63,10 @@ class OpenclassdutController extends AbstractController
     public function stageDetaillee($id)
     {
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
-        
-        $infoStage = $repositoryStages -> find($id);
 
+        $infoStage = $repositoryStages -> find($id);
+        
         return $this->render('openclassdut/stageDetaillee.html.twig',['id' => $id, 'infoStage' => $infoStage]);
     }
+    
 }

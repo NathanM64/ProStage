@@ -12,9 +12,15 @@
 
 {% block titre %}
 
-Affiche du stage n° {{id}}
+Affiche du stage {{infoStage.titre}}
 
 {% endblock %}
-{% block }
+{% block details %}
+
+    <h4>
+        {{infoStage.descriptionMission}}
+    </h4>
+
+{% endblock %}
 
 
