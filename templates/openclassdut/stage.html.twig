@@ -6,14 +6,14 @@
     <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>
     <a class="nav-item nav-link active " href="">Stages <span class="sr-only">(current)</span></a>
     <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>                                
-                  
+    <a class="nav-item nav-link " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>               
 {% endblock %}
 {% block titre %}
 <br>
 Liste de tous les stages
 
 {% endblock %}
-{% block enTeteTableauStage %}
+{% block enTeteTableau %}
 <thead>
     <tr>
         <th>
@@ -57,13 +57,11 @@ Liste de tous les stages
                 {{stage.getEntreprise().nom}}
             </td>
             <td>
-                <a href= "{{path('stageDetaillee',{id:stage.id})}}">Plus d'information </a>
+                <a href= "{{path('stageDetaille',{id:stage.id})}}">Plus d'information </a>
             </td>
             
         </tr>
 </tbody>
-
-
     {% endfor %}
 
 

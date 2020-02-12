@@ -9,42 +9,32 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OpenclassdutController extends AbstractController
 {
-    /**
-     * @Route("/accueil", name="accueil")
-     */
     
-    
-    
-    
-
     public function accueil()
     {
         
-        return $this->render('openclassdut/accueil.html.twig', [
-            'controller_name' => 'OpenclassdutController',
-        ]);
+        return $this->render('openclassdut/accueil.html.twig', ['controller_name' => 'OpenclassdutController',]);
     }
-    /**
-     * @Route("/entreprises", name="entreprises")
-     */
+    
     public function entreprises()
     {
-        return $this->render('openclassdut/entreprises.html.twig', [
-            'controller_name' => 'OpenclassdutController',
-        ]);
+        $repositoryEntreprise = $this->getDoctrine()->getRepository(Entreprise::class);
+
+        $infoEntreprises = $repositoryEntreprise->findAll();
+
+        return $this->render('openclassdut/entreprises.html.twig', ['controller_name' => 'OpenclassdutController', 'infoEntreprises' => $infoEntreprises]);
     }
-    /** 
-     * @Route("/formations", name="formations")
-     */
+    
     public function formations()
     {
-        return $this->render('openclassdut/formations.html.twig', [
-            'controller_name' => 'OpenclassdutController',
-        ]);
+        
+        $repositoryFormation = $this->getDoctrine()->getRepository(Formations::class);
+
+        $infoFormation = $repositoryFormation->findAll();
+   
+        return $this->render('openclassdut/formations.html.twig', ['controller_name' => 'OpenclassdutController', 'infoFormation' => $infoFormation ]);
     }
-    /** 
-     * @Route("/stage", name="stage")
-     */
+
     public function stage()
     {
         
@@ -52,21 +42,35 @@ class OpenclassdutController extends AbstractController
         
         $stages = $repositoryStages -> findAll();
 
-        
-
         return $this->render('openclassdut/stage.html.twig',['listeStages' => $stages]);
     }    
-    /** 
-     * @Route("/stageDetaillee/{id}", name="stageDetaillee")
-     */
+   
     
-    public function stageDetaillee($id)
+    public function stageDetaille($id)
     {
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
 
         $infoStage = $repositoryStages -> find($id);
         
-        return $this->render('openclassdut/stageDetaillee.html.twig',['id' => $id, 'infoStage' => $infoStage]);
+        return $this->render('openclassdut/stageDetaille.html.twig',['id' => $id, 'infoStage' => $infoStage]);
+    }
+
+    public function stageParEntreprise($nom)
+    {
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+
+        $infoStages = $repositoryStage->getStagesParEntreprise($nom);
+
+        return $this->render('openclassdut/stageParEntreprise.html.twig', ['infoStages' => $infoStages]);
+    }
+
+    public function stageParFormation($nom)
+    {
+        $repositoryStage = $this->getDoctrine()->getRepository(Stage::class);
+
+        $infoStages = $repositoryStage->getStagesParFormation($nom);
+
+        return $this->render('openclassdut/stageParFormation.html.twig', ['infoStages' => $infoStages]);
     }
     
 }

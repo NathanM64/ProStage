@@ -19,6 +19,7 @@ class EntrepriseRepository extends ServiceEntityRepository
         parent::__construct($registry, Entreprise::class);
     }
 
+    
     // /**
     //  * @return Entreprise[] Returns an array of Entreprise objects
     //  */

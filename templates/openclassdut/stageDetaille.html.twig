@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stage n°{{id}}{% endblock %}
+
+{% block navbar %}
+
+    <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active " href="{{ path('stage') }}">Stages <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>                                
+                  
+{% endblock %}
+
+{% block titre %}
+
+Affiche du stage: {{infoStage.titre}}
+
+{% endblock %}
+{% block details %}
+
+    <h3>
+        {{infoStage.descriptionMission}} <br>
+        
+    </h3>
+
+    <h5>
+        Ce stage est proposé par: {{infoStage.entreprise.nom}}
+    </h5>
+        
+
+{% endblock %}
+
+

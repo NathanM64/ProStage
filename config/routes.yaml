@@ -1,1 +1,29 @@
-#rien
+# /config/routes.yaml
+
+accueil :
+    path: /accueil
+    controller: App\Controller\OpenclassdutController::accueil
+
+entreprises :
+    path: /entreprises
+    controller: App\Controller\OpenclassdutController::entreprises
+
+formations :
+    path: /formations
+    controller: App\Controller\OpenclassdutController::formations
+
+stage :
+    path: /stage
+    controller: App\Controller\OpenclassdutController::stage
+
+stageDetaille :
+    path: /stageDetaille/{id}
+    controller: App\Controller\OpenclassdutController::stageDetaille
+
+stageParEntreprise :
+    path: /stageParEntreprise/{nom}
+    controller: App\Controller\OpenclassdutController::stageParEntreprise
+
+stageParFormation :
+    path: /stageParFormation/{nom}
+    controller: App\Controller\OpenclassdutController::stageParFormation

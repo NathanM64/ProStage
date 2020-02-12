@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-
-
-
-
 {% block navbar %}
 
     <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>
@@ -36,24 +32,25 @@
 
 {% block elementTab  %}
 <tbody>
-    {% for entreprise in infoEntreprises %}
+    {% for stage in infoStages %}
+
         <tr>
             <td>
-                {{entreprise.id}}
+                {{stage.id}}
             </td>
             <td>
-                {{entreprise.nom}}
+                {{stage.titre}}
             </td>
             <td>
                 
-                {{entreprise.adresse}}<br>
+                {{stage.descriptionMission}}<br>
 
             </td>
             <td>
-                {{entreprise.nom}}
+                {{stage.email}}
             </td>
             <td>
-                <a href= "{{path('stageParEntreprise',{nom:entreprise.nom})}}">Consulter les stages </a>
+                
             </td>
             
         </tr>
