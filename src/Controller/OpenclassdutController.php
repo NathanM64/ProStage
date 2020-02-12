@@ -40,7 +40,7 @@ class OpenclassdutController extends AbstractController
         
         $repositoryStages = $this->getDoctrine()->getRepository(Stage::class);
         
-        $stages = $repositoryStages -> findAll();
+        $stages = $repositoryStages -> getStageEtEntrepriseEtFormation();
 
         return $this->render('openclassdut/stage.html.twig',['listeStages' => $stages]);
     }    

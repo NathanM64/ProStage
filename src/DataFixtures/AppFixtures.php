@@ -32,12 +32,20 @@ class AppFixtures extends Fixture
             $Stage->setTitre($faker->realText($maxNbChars = 50 , $indexSize = 2));
             $Stage->SetDescriptionMission($faker->realText($maxNbChars = 255 , $indexSize = 2));
             $Stage->setEmail($faker->realText($maxNbChars = 30 , $indexSize = 2));
+
+            $Stage2 = new Stage();
+            $Stage2->setTitre($faker->realText($maxNbChars = 50 , $indexSize = 2));
+            $Stage2->SetDescriptionMission($faker->realText($maxNbChars = 255 , $indexSize = 2));
+            $Stage2->setEmail($faker->realText($maxNbChars = 30 , $indexSize = 2));
             
             $Stage->addFormation($Formation);
+            $Stage2->addFormation($Formation);
             
             $Entreprise->addStage($Stage);
+            $Entreprise->addStage($Stage2);
                 
             $manager->persist($Stage);
+            $manager->persist($Stage2);
         
 
         }

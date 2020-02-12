@@ -17,10 +17,10 @@ Liste de tous les stages
 <thead>
     <tr>
         <th>
-            ID
+            Titre
         </th>
         <th>
-            Titre
+            Proposé par
         </th>
         <th>
             Types de formation
@@ -41,10 +41,10 @@ Liste de tous les stages
 
         <tr>
             <td>
-                {{stage.id}}
+                {{stage.titre}}
             </td>
             <td>
-                {{stage.titre}}
+                {{stage.entreprise.nom}}
             </td>
             <td>
                 {% for formation in stage.formations %}
