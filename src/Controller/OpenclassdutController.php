@@ -6,6 +6,12 @@ use App\Entity\Entreprise;
 use App\Entity\Formations;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
+
 
 class OpenclassdutController extends AbstractController
 {
@@ -73,17 +79,19 @@ class OpenclassdutController extends AbstractController
         return $this->render('openclassdut/stageParFormation.html.twig', ['infoStages' => $infoStages]);
     }
 
-    public function ajoutEntreprise($nom)
+    public function ajouterUneEntreprise(Request $request, ObjectManager $manager)
     {
         //Création d'un objet entreprise vide
         $entreprise = new Entreprise();
 
+
+
         //Création du formulaire permettant de saisir une entreprise
         $formulaireEntreprise = $this->createFormBuilder($entreprise)
-            ->add('nom', 'text')
-            ->add('activite', 'textarea', array('label'=>'Activité principale'))
-            ->add('adresse', 'textarea')
-            ->add('SiteWeb', 'url')
+            ->add('nom', TextType::class)
+            ->add('activite')
+            ->add('adresse', TextareaType::class)
+            ->add('site', UrlType::class)
             ->getForm();
         
         //Enregistrer les donnéees dans l'objet $entreprise une fois la soumission du formulaire
@@ -100,7 +108,7 @@ class OpenclassdutController extends AbstractController
         }
         
 
-        return $this->render('openclassdut/ajoutEntreprise.html.twig');
+        return $this->render('openclassdut/ajouterUneEntreprise.html.twig',array('vueFormulaireEntreprise'=>$formulaireEntreprise->createView()));
     }
     
 }
