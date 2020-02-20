@@ -16,10 +16,10 @@ class AppFixtures extends Fixture
         for ($i=0 ; $i < 10 ; $i++) { 
             
             $Entreprise = new Entreprise();
-            $Entreprise->setAdresse($faker->realText($maxNbChars = 50 , $indexSize = 2));
-            $Entreprise->setActivite($faker->realText($maxNbChars = 50 , $indexSize = 2));
-            $Entreprise->setNom($faker->realText($maxNbChars = 30 , $indexSize = 2));
-            $Entreprise->setSite($faker->realText($maxNbChars = 50 , $indexSize = 2));
+            $Entreprise->setAdresse($faker->address);
+            $Entreprise->setActivite($faker->catchphrase);
+            $Entreprise->setNom($faker->company);
+            $Entreprise->setSite($faker->url);
             $manager->persist($Entreprise);
 
             $Formation = new Formations();
@@ -31,12 +31,12 @@ class AppFixtures extends Fixture
             $Stage = new Stage();
             $Stage->setTitre($faker->realText($maxNbChars = 50 , $indexSize = 2));
             $Stage->SetDescriptionMission($faker->realText($maxNbChars = 255 , $indexSize = 2));
-            $Stage->setEmail($faker->realText($maxNbChars = 30 , $indexSize = 2));
+            $Stage->setEmail($faker->safeEmail);
 
             $Stage2 = new Stage();
             $Stage2->setTitre($faker->realText($maxNbChars = 50 , $indexSize = 2));
             $Stage2->SetDescriptionMission($faker->realText($maxNbChars = 255 , $indexSize = 2));
-            $Stage2->setEmail($faker->realText($maxNbChars = 30 , $indexSize = 2));
+            $Stage2->setEmail($faker->safeEmail);
             
             $Stage->addFormation($Formation);
             $Stage2->addFormation($Formation);

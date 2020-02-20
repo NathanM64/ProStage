@@ -28,7 +28,7 @@
             Site
         </th>
         <th>
-            Stages proposés
+            Tous les stages
         </th>
     </tr>
 </thead>
@@ -46,11 +46,11 @@
             </td>
             <td>
                 
-                {{entreprise.adresse}}<br>
+                {{entreprise.adresse}}
 
             </td>
             <td>
-                {{entreprise.nom}}
+                <a href="{{entreprise.site}}"a>{{entreprise.site}}
             </td>
             <td>
                 <a href= "{{path('stageParEntreprise',{nom:entreprise.nom})}}">Consulter les stages </a>

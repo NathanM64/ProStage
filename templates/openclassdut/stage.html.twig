@@ -25,9 +25,7 @@ Liste de tous les stages
         <th>
             Types de formation
         </th>
-        <th>
-            Entreprise
-        </th>
+        
         <th>
             à propos
         </th>
@@ -53,9 +51,7 @@ Liste de tous les stages
 
                 {% endfor %}
             </td>
-            <td>
-                {{stage.getEntreprise().nom}}
-            </td>
+            
             <td>
                 <a href= "{{path('stageDetaille',{id:stage.id})}}">Plus d'information </a>
             </td>

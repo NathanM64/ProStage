@@ -27,3 +27,7 @@ stageParEntreprise :
 stageParFormation :
     path: /stageParFormation/{nom}
     controller: App\Controller\OpenclassdutController::stageParFormation
+
+ajoutEntreprise :
+    path: /ajoutEntreprise
+    controller: App\Controller\OpenclassdutController::ajoutEntreprise

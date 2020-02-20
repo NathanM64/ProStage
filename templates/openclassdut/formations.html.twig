@@ -10,7 +10,21 @@
     <a class="nav-item nav-link active " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>                                
                   
 {% endblock %}
-
+{% block enTeteTableau %}
+<thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Formation
+        </th>
+        <th>
+            Tous les stages
+        </th>
+    </tr>
+</thead>
+{% endblock %}
 
 
 {% block elementTab  %}

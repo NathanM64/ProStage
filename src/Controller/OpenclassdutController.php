@@ -72,5 +72,35 @@ class OpenclassdutController extends AbstractController
 
         return $this->render('openclassdut/stageParFormation.html.twig', ['infoStages' => $infoStages]);
     }
+
+    public function ajoutEntreprise($nom)
+    {
+        //Création d'un objet entreprise vide
+        $entreprise = new Entreprise();
+
+        //Création du formulaire permettant de saisir une entreprise
+        $formulaireEntreprise = $this->createFormBuilder($entreprise)
+            ->add('nom', 'text')
+            ->add('activite', 'textarea', array('label'=>'Activité principale'))
+            ->add('adresse', 'textarea')
+            ->add('SiteWeb', 'url')
+            ->getForm();
+        
+        //Enregistrer les donnéees dans l'objet $entreprise une fois la soumission du formulaire
+        $formulaireEntreprise -> handleRequest($request);
+
+        if($formulaireEntreprise->isSubmitted())
+        {
+            //Enregistrement de l'entreprise en BD
+            $manager -> persist($entreprise);
+            $manager ->flush();
+
+            //On  redirige l'utilisateur vers la page qui liste toutes les entreprises
+            return $this->redirect($this->generateUrl('entreprises'));
+        }
+        
+
+        return $this->render('openclassdut/ajoutEntreprise.html.twig');
+    }
     
 }
