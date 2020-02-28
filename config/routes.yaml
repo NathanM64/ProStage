@@ -31,3 +31,11 @@ stageParFormation :
 ajouterUneEntreprise :
     path: /ajouterUneEntreprise
     controller: App\Controller\OpenclassdutController::ajouterUneEntreprise
+
+modifierUneEntreprise:
+    path: /modifierUneEntreprise/{id}
+    controller: App\Controller\OpenclassdutController::modifierUneEntreprise
+
+ajouterUnStage:
+    path: /ajouterUnStage
+    controller: App\Controller\OpenclassdutController::ajouterUnStage

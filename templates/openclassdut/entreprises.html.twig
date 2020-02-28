@@ -29,7 +29,7 @@
             Site
         </th>
         <th>
-            Tous les stages
+            Plus..
         </th>
     </tr>
 </thead>
@@ -54,7 +54,8 @@
                 <a href="{{entreprise.site}}"a>{{entreprise.site}}
             </td>
             <td>
-                <a href= "{{path('stageParEntreprise',{nom:entreprise.nom})}}">Consulter les stages </a>
+                <a href= "{{path('stageParEntreprise',{nom:entreprise.nom})}}">Consulter les stages</a></br>
+                <a href= "{{path('modifierUneEntreprise',{id:entreprise.id})}}">Modifier</a>
             </td>
             
         </tr>

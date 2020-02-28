@@ -110,5 +110,67 @@ class OpenclassdutController extends AbstractController
 
         return $this->render('openclassdut/ajouterUneEntreprise.html.twig',array('vueFormulaireEntreprise'=>$formulaireEntreprise->createView()));
     }
+    public function modifierUneEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise)
+    {
+        // creation d'un objet formulaire pour saisir un nouveau stage
+        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
+                -> add ('nom')
+                -> add ('activite')
+                -> add ('adresse',TextareaType::class)
+                -> add ('site',UrlType::class)
+                -> getForm();
+
+        $formulaireEntreprise -> handleRequest($request);
+
+        //traiter les données du formulaire s'il a été soumi
+        if ($formulaireEntreprise -> isSubmitted() && $formulaireEntreprise -> isValid() )
+        {
+            // enregistrer l'entreprise en BD
+            $manager -> persist($entreprise);
+            $manager->flush();
+
+            //redirection de l'utilisateur vers la page affichant la list des entreprises
+            return $this->redirectToRoute('entreprises');
+        }
+
+        // générer la vue représentant le formulaire
+        $vueFormulaireModifEntreprise = $formulaireEntreprise -> createView();
+
+
+        // afficher la page d'ajout d'une ressource
+        return $this->render('openclassdut/modifierUneEntreprise.html.twig', ['vueFormulaireModifEntreprise' => $vueFormulaireModifEntreprise]);
+
+    }
+//    public function ajouterUnStage(Request $request, ObjectManager $manager)
+//    {
+//        //Création d'un objet entreprise  = new Stage();
+//
+//
+//
+//        //Création du formulaire permettant de saisir une entreprisevide
+//        //        $stage
+//        $formulaireStage = $this->createFormBuilder($stage)
+//            ->add('titre', TextType::class)
+//            ->add('descriptionMission')
+//            ->add('email', TextareaType::class)
+//            ->add('entreprise', UrlType::class)
+//            ->getForm();
+//
+//        //Enregistrer les donnéees dans l'objet $entreprise une fois la soumission du formulaire
+//        $formulaireStage -> handleRequest($request);
+//
+//        if($formulaireStage->isSubmitted())
+//        {
+//            //Enregistrement de l'entreprise en BD
+//            $manager -> persist($stage);
+//            $manager ->flush();
+//
+//            //On  redirige l'utilisateur vers la page qui liste toutes les entreprises
+//            return $this->redirect($this->generateUrl('entreprises'));
+//        }
+//
+//
+//        return $this->render('openclassdut/ajotuerUnStage.html.twig',array('vueFormulaireStage'=>$formulaireStage->createView()));
+//    }
     
 }
