@@ -21,11 +21,14 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Assert\Regex(pattern="#[0-9]{5}(([,. ]?){1}[-a-zA-Zàâäéèêëïîôöùûüç']+)*#",
+     * message ="L'adresse postale est incorrect.")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\NotBlank
      */
     private $activite;
 
@@ -43,8 +46,9 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Url(message = "le format de l'URL n'est pas correcte.")
      * @Assert\NotBlank(message="le side web de l'entreprise doit être renseigné.")
+     * @Assert\Url(message = "le format de l'URL n'est pas correcte.")
+     *
      */
     private $site;
 
