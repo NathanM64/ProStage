@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EntrepriseRepository")
@@ -30,16 +31,26 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min = 4,
+     *     max = 255,
+     *     minMessage = "le nom de l'entreprise doit faire au moins {{ limit }} caractères.",
+     *     maxMessage = "le nom de l'entreprise doit faire au plus {{ limit }} caractères."
+     *     )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url(message = "le format de l'URL n'est pas correcte.")
+     * @Assert\NotBlank(message="le side web de l'entreprise doit être renseigné.")
      */
     private $site;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Stage", mappedBy="entreprise")
+     *
      */
     private $stages;
 

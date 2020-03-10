@@ -88,16 +88,16 @@ class OpenclassdutController extends AbstractController
 
         //Création du formulaire permettant de saisir une entreprise
         $formulaireEntreprise = $this->createFormBuilder($entreprise)
-            ->add('nom', TextType::class)
+            ->add('nom')
             ->add('activite')
             ->add('adresse', TextareaType::class)
-            ->add('site', UrlType::class)
+            ->add('site')
             ->getForm();
         
         //Enregistrer les donnéees dans l'objet $entreprise une fois la soumission du formulaire
         $formulaireEntreprise -> handleRequest($request);
 
-        if($formulaireEntreprise->isSubmitted())
+        if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise -> isValid())
         {
             //Enregistrement de l'entreprise en BD
             $manager -> persist($entreprise);

@@ -13,28 +13,24 @@
     {{ form_start (vueFormulaireModifEntreprise) }}
     <div>
         {{ form_label (vueFormulaireModifEntreprise.nom) }}
-        {{ form_errors (vueFormulaireModifEntreprise.nom) }}
         <br>
         {{ form_widget (vueFormulaireModifEntreprise.nom, {'attr':{'placeholder':"Nom de l'entreprise"}}) }}
     </div>
     <br>
     <div>
         {{ form_label (vueFormulaireModifEntreprise.activite) }}
-        {{ form_errors (vueFormulaireModifEntreprise.activite) }}
         <br>
         {{ form_widget (vueFormulaireModifEntreprise.activite, {'attr':{'placeholder':"Domaine d'activité de l'entreprise"}}) }}
     </div>
     <br>
     <div>
         {{ form_label (vueFormulaireModifEntreprise.adresse) }}
-        {{ form_errors (vueFormulaireModifEntreprise.adresse) }}
         <br>
         {{ form_widget (vueFormulaireModifEntreprise.adresse, {'attr':{'placeholder':"Adresse postale de l'entreprise"}}) }}
     </div>
     <br>
     <div>
         {{ form_label (vueFormulaireModifEntreprise.site) }}
-        {{ form_errors (vueFormulaireModifEntreprise.site) }}
         <br>
         {{ form_widget (vueFormulaireModifEntreprise.site, {'attr':{'placeholder':"Adresse URL du site de l'entreprise"}}) }}
 
