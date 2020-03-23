@@ -39,26 +39,55 @@
             </div>
         </div>      
 {% endblock %}
-{% block menu %}       
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                     <a class="navbar-brand" href="#">ProStages</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                             <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                             <div class="navbar-nav">
-{% block navbar %}  
-                                   
-{% endblock %}
-                            </div>
-                        </div>
-                </nav>
-            </div>
+<!-- BLOC DU MENU -->
+{% block menu %}
+<div class="row">
+    <div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('accueil')}}">Accueil</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('entreprises')}}">Entreprises</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('stage')}}">Stages</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{path('formations')}}">Formations</a>
+            </li>
+            
+        </ul>
+        <ul class="navbar-nav ml-md-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{{path('ajouterUneEntreprise')}}">
+                <i class="icon-plus-1"></i>
+                Ajouter un entreprise
+                <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="{{path('ajouterUnStage')}}">
+                <i class="icon-plus-1"></i>
+                Ajouter un stage
+                <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+            <a class="nav-link" href="#">
+                <i class="icon-user"></i>
+                Déconnexion
+                <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
         </div>
+    </nav>
     </div>
+</div>
 {% endblock %}
 
 <div class="container-fluid">
