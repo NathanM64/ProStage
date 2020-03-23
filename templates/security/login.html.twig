@@ -1,14 +1,4 @@
 {% extends 'base.html.twig' %}
-{% block navbar %}
-
-    <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link active " href="">Stages <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>                                
-    <a class="nav-item nav-link " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link " href="{{ path('ajouterUneEntreprise') }}">Ajouter une entreprise <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link " href="{{ path('ajouterUnStage') }}">Ajouter un stage <span class="sr-only">(current)</span></a>
-
-{% endblock %}
 
 {% block titrePage %}
 Authentification
@@ -49,5 +39,9 @@ Authentification
     <button class="btn btn-lg btn-primary" type="submit">
         Se connecter
     </button>
+    <a class="nav-link" href="{{path('inscription')}}">
+                    <i class="icon-user"></i>
+                    Créer un nouveau compte
+                    <span class="sr-only">(current)</span></a>
 </form>
 {% endblock %}

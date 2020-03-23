@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+{% block titrePage %}
+Inscription
+{% endblock %}
+{% block contenuPage %}
+    {{ form_start (vueFormulaireInscription, {'attr':{'novalidate':'novalidate'}}) }}
+        <div>
+                {{ form_label (vueFormulaireInscription.prenom) }}
+                <br> 
+                {{ form_widget (vueFormulaireInscription.prenom, {'attr':{'placeholder':"Prenom..."}}) }} 
+        </div>
+            <br>
+        <div>
+                {{ form_label (vueFormulaireInscription.nom) }}
+                <br>
+                {{ form_widget (vueFormulaireInscription.nom, {'attr':{'placeholder':"Nom..."}}) }} 
+        </div>
+            <br>
+        <div>
+                {{ form_label (vueFormulaireInscription.email) }}
+                <br> 
+                {{ form_widget (vueFormulaireInscription.email, {'attr':{'placeholder':"login@mail.com..."}}) }} 
+        </div>
+            <br>
+        <div>
+                {{ form_label (vueFormulaireInscription.password) }}
+                <br>
+                {{ form_widget (vueFormulaireInscription.password, {'attr':{'placeholder':"mot de passe"}}) }} 
+                            
+        </div>
+            <br>
+        <div>
+            <button type="submit" class="btn btn-success">Valider</button>
+        </div>
+    {{ form_end (vueFormulaireInscription) }}
+
+{% endblock %}

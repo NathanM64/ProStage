@@ -39,3 +39,7 @@ modifierUneEntreprise:
 ajouterUnStage:
     path: /user&admin/ajouterUnStage
     controller: App\Controller\OpenclassdutController::ajouterUnStage
+
+inscription:
+    path: /inscription
+    controller: App\Controller\SecurityController::inscription

@@ -9,6 +9,9 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+
+<!-- BLOC DU SlIDER -->
 {% block slider %}
     <div class="slider">
         <div class="row">
@@ -39,6 +42,10 @@
             </div>
         </div>      
 {% endblock %}
+
+
+
+
 <!-- BLOC DU MENU -->
 {% block menu %}
 <div class="row">
@@ -76,19 +83,31 @@
                 Ajouter un stage
                 <span class="sr-only">(current)</span></a>
             </li>
-
-            <li class="nav-item active">
-            <a class="nav-link" href="#">
-                <i class="icon-user"></i>
-                Déconnexion
-                <span class="sr-only">(current)</span></a>
+            {% if is_granted('ROLE_USER') %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{{path('app_logout')}}">
+                    {{ app.user.prenom }}
+                    <i class="icon-user"></i>
+                    | Déconnexion
+                    <span class="sr-only">(current)</span></a>
             </li>
+            {% else %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{{path('app_login')}}">
+                    <i class="icon-user"></i>
+                    Connexion
+                    <span class="sr-only">(current)</span></a>
+            {% endif %}
         </ul>
         </div>
     </nav>
     </div>
 </div>
 {% endblock %}
+
+
+
+
 
 <div class="container-fluid">
 	<div class="row">
