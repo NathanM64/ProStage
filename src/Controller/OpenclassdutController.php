@@ -108,12 +108,7 @@ class OpenclassdutController extends AbstractController
     public function modifierUneEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise)
     {
         // creation d'un objet formulaire pour saisir un nouveau stage
-        $formulaireEntreprise = $this -> createFormBuilder($entreprise)
-                -> add ('nom')
-                -> add ('activite')
-                -> add ('adresse',TextareaType::class)
-                -> add ('site',UrlType::class)
-                -> getForm();
+        $formulaireEntreprise = $this -> createForm(EntrepriseType::class, $entreprise);
 
         $formulaireEntreprise -> handleRequest($request);
 
