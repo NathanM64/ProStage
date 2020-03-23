@@ -10,8 +10,10 @@
 {% endblock %}
 
 
-{% block formulaire %}
-    <h3>Création d'un stage</h3>
+{% block titrePage %}
+Creer un nouveau stage
+{% endblock %}
+{% block contenuPage %}
     {{ form_start (vueFormulaireStage) }}
     <div>
         {{ form_label (vueFormulaireStage.titre) }}

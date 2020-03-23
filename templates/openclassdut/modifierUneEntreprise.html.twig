@@ -10,8 +10,10 @@
 
 {% endblock %}
 
-
-{% block formulaire %}
+{% block titrePage %}
+Modifier une Entreprise 
+{% endblock %}
+{% block contenuPage %}
     {{ form_start (vueFormulaireModifEntreprise) }}
     <div>
         {{ form_label (vueFormulaireModifEntreprise.nom) }}

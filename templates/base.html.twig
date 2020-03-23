@@ -60,17 +60,17 @@
         </div>
     </div>
 {% endblock %}
-{% block enTeteDePage %}
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
             <h1>
-				{% block titre %}{% endblock %}
+				{% block titre %} {% endblock %}
 			</h1>
 		</div>
 	</div>
 </div>
-{% endblock %}
+
 {% block stageDescription %}
 <div class="row">
 		<div class="col-md-12">
@@ -81,6 +81,22 @@
 	</div>
 </div>
 {% block contenu %}
+            <div class="row" style="margin-top:15px;">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h5>
+                      {% block titrePage %}{% endblock %}
+                    </h5>
+                  </div>
+                  <div class="card-body">
+                    {% block contenuPage %}{% endblock %}
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}
+{% block contenuTab %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -89,13 +105,8 @@
 
 {% block enTeteTableau %}
 
-
-
-
 {% endblock %}
 {% block elementTab %}
-
-
 {% endblock %}
 
             </table>
@@ -103,27 +114,16 @@
     </div>
 </div>
 {% endblock %}
-
-
-
-
-
-
-
-
 {% endblock %}
 
 
-
-
-
 {% block formulaire %}
+
 {% endblock %}
 
 
 
 {% block footer %}
-
 {% endblock %}
 
     <!-- Optional JavaScript -->

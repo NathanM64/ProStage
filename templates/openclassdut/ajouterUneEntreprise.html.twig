@@ -11,7 +11,10 @@
 {% endblock %}
 
 
-{% block formulaire %}
+{% block titrePage %}
+Ajouter une Entreprise 
+{% endblock %}
+{% block contenuPage %}
     {{ form_start (vueFormulaireEntreprise, {'attr':{'novalidate':'novalidate'}}) }}
         <div>
                 {{ form_label (vueFormulaireEntreprise.nom) }}
