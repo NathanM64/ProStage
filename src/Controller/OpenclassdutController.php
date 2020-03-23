@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
-
+use App\Form\EntrepriseType;
 
 class OpenclassdutController extends AbstractController
 {
@@ -87,12 +87,7 @@ class OpenclassdutController extends AbstractController
 
 
         //Création du formulaire permettant de saisir une entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-            ->add('nom', TextType::class)
-            ->add('activite')
-            ->add('adresse', TextareaType::class)
-            ->add('site', UrlType::class)
-            ->getForm();
+        $formulaireEntreprise = $this -> createForm(EntrepriseType::class, $entreprise);
         
         //Enregistrer les donnéees dans l'objet $entreprise une fois la soumission du formulaire
         $formulaireEntreprise -> handleRequest($request);

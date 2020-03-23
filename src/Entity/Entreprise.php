@@ -21,7 +21,9 @@ class Entreprise
 
     /**
      * @ORM\Column(type="string", length=150)
-     * @Assert\Regex(pattern="#[0-9]{5}(([,. ]?){1}[-a-zA-Zàâäéèêëïîôöùûüç']+)*#",
+     * @Assert\Regex(pattern = "#^[1-9][0-9]{0,2}(bis| bis)? #", message = "Le numéro de rue semble incorrect")
+     * @Assert\Regex(pattern = "# rue|boulevard|impasse|allée|place|route|voie #", message = "Le type de rout/voie semble incorrect")
+     * @Assert\Regex(pattern = "# [0-9]{5} #", message = "Le code postale semble incorrect")
      * message ="L'adresse postale est incorrect.")
      */
     private $adresse;
