@@ -1,44 +1,46 @@
-{#{% extends 'base.html.twig' %}#}
+{% extends 'base.html.twig' %}
 
-{#{% block navbar %}#}
-{#    <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>#}
-{#    <a class="nav-item nav-link " href="{{ path('stage') }}">Stages <span class="sr-only">(current)</span></a>#}
-{#    <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>#}
-{#    <a class="nav-item nav-link " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>#}
-{#    <a class="nav-item nav-link active " href="{{ path('ajouterUneEntreprise') }}">Ajouter une entreprise <span class="sr-only">(current)</span></a>#}
-{#{% endblock %}#}
+{% block navbar %}
+    <a class="nav-item nav-link " href="{{ path('accueil') }}">Accueil <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('stage') }}">Stages <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('entreprises') }}">Entreprises <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('formations') }}">Formations <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link " href="{{ path('ajouterUneEntreprise') }}">Ajouter une entreprise <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active " href="{{ path('ajouterUnStage') }}">Ajouter un stage <span class="sr-only">(current)</span></a>
+{% endblock %}
 
 
-{#{% block formulaire %}#}
-{#    {{ form_start (vueFormulaireEntreprise) }}#}
-{#    <div>#}
-{#        {{ form_label (vueFormulaireEntreprise.nom) }}#}
-{#        <br>#}
-{#        {{ form_widget (vueFormulaireEntreprise.nom, {'attr':{'placeholder':"Nom de l'entreprise"}}) }}#}
-{#    </div>#}
-{#    <br>#}
-{#    <div>#}
-{#        {{ form_label (vueFormulaireEntreprise.activite) }}#}
-{#        <br>#}
-{#        {{ form_widget (vueFormulaireEntreprise.activite, {'attr':{'placeholder':"Domaine d'activité de l'entreprise"}}) }}#}
-{#    </div>#}
-{#    <br>#}
-{#    <div>#}
-{#        {{ form_label (vueFormulaireEntreprise.adresse) }}#}
-{#        <br>#}
-{#        {{ form_widget (vueFormulaireEntreprise.adresse, {'attr':{'placeholder':"Adresse postale de l'entreprise"}}) }}#}
-{#    </div>#}
-{#    <br>#}
-{#    <div>#}
-{#        {{ form_label (vueFormulaireEntreprise.site) }}#}
-{#        <br>#}
-{#        {{ form_widget (vueFormulaireEntreprise.site, {'attr':{'placeholder':"Adresse URL du site de l'entreprise"}}) }}#}
+{% block formulaire %}
+    <h3>Création d'un stage</h3>
+    {{ form_start (vueFormulaireStage) }}
+    <div>
+        {{ form_label (vueFormulaireStage.titre) }}
+        <br>
+        {{ form_widget (vueFormulaireStage.titre) }}
+    </div>
+    <div>
+        {{ form_label (vueFormulaireStage.email) }}
+        <br>
+        {{ form_widget (vueFormulaireStage.email) }}
+    </div>
+    <div>
+        {{ form_label (vueFormulaireStage.descriptionMission) }}
+        <br>
+        {{ form_widget (vueFormulaireStage.descriptionMission) }}
+    </div>
+    <div>
+        {{ form_label (vueFormulaireStage.entreprise) }}
+        <br>
+        {{ form_widget (vueFormulaireStage.entreprise) }}
+    </div>
+    <div>
+        {{ form_label (vueFormulaireStage.formations) }}
+        <br>
+        {{ form_widget (vueFormulaireStage.formations) }}
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-dark"> Créer </button>
+    </div>
+    {{ form_end (vueFormulaireStage) }}
 
-{#    </div>#}
-{#    <br>#}
-{#    <div>#}
-{#        <button type="submit" class="btn btn-success">Enregistrer</button>#}
-{#    </div>#}
-{#    {{ form_end (vueFormulaireEntreprise) }}#}
-
-{#{% endblock %}#}
+{% endblock %}
